@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "backend/src/server.js": {
+      "memory": 1024
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/backend/src/server.js"
+    }
+  ]
+}
