@@ -57,16 +57,16 @@ const app = express();
 
 const clientURL = process.env.CLIENT_URL || "http://localhost:5173";
 
-// Connect to DB immediately
+// connect DB
 connectDB();
 
-// Middlewares
 app.use(
   cors({
     origin: clientURL,
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -75,10 +75,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/chat", chatRoutes);
 
-// Health check (for debugging "Not Found")
+// Debug route
 app.get("/", (req, res) => {
   res.send("Backend is running ✅");
 });
 
-// Export for Vercel
+// ✅ Do not use app.listen() on Vercel
 export default app;
