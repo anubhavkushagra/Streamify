@@ -1,6 +1,6 @@
 {
   "functions": {
-    "backend/src/server.js": {
+    "src/server.js": {
       "memory": 1024
     }
   },
